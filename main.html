@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>股票e票通</title>
+    <meta content="width=device-width">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="./css/index.css">
+    <link href="http://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css" rel="stylesheet" type="text/css">
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $(".toggle").click(function () {
+                $(this).toggleClass("active");
+                $(".nav").slideToggle();
+            });
+        });
+    </script>
+</head>
+
+<body>
+    <header class="c-header">
+        <div class="c-header-content">
+            <img class="logo" src="./asset/main_icon.png">
+            <label class="toggle">
+                <img src="https://www.stockvote.com.tw/evote/images/zh_TW/btn_menu.svg" alt>
+            </label>
+            <div class="nav">
+                <ul class="c-header-ul">
+                    <li class="header-li"><a href="">首頁</a></li>
+                    <li class="header-li"><a>關於我們</a></li>
+                    <li class="header-li"><a>活動消息</a></li>
+                    <li class="header-li"><a>統計專區</a></li>
+                    <li class="header-li"><a>Q&A</a></li>
+                    <li class="header-li"><a>聯絡我們</a></li>
+                    <li class="header-li"><a href="">登入</a></li>
+                </ul>
+            </div>
+        </div>
+    </header>
+
+    <main class="main-contain">
+        <div class="main-div">
+            <h3>活動消息：</h3>
+        </div>
+
+        <div class="main-three-contain">
+            <div class="main-circle-title">
+                <h2 class="main-circle-title--word">一般股東</h2>
+            </div>
+
+            <div class="main-circle-title">
+                <h2 class="main-circle-title--word">發行公司・ 股務代理機構</h2>
+            </div>
+
+            <div class="main-circle-title">
+                <h2 class="main-circle-title--word">專業機構法人</h2>
+            </div>
+        </div>
+
+        <div class="main-select">
+            <h2 class="main-select--word">新手上路</h2>
+            <h2 class="main-select--word">首次使用設定</h2>
+        </div>
+
+        <section class="main-div-margin">
+            <h4 class="main-h4">股東會資訊</h4>
+            <div class="main-table-contain">
+                <div class="main-table-contain--query">
+                    <div class="main-table-query--row">
+                        <label>資料排序方式：</label>
+                        <div class="main-table-query--row_btton">
+                            <input type="text" name="sort">
+                            <button class="main-table-query--button ">查詢</button>
+                        </div>
+                    </div>
+
+                    <div class="main-table-query--row">
+                        <label>搜尋股東會：</label>
+                        <div class="main-table-query--row_btton">
+                            <input type="text" name="sort">
+                            <button class="main-table-query--button ">查詢</button>
+                        </div>
+                    </div>
+                </div>
+
+                <table id="meetinfo" class="c-cardTable">
+                    <thead class="main-table-thead">
+                        <tr>
+                            <th class="main-thead_with--50">證券代號/名稱</th>
+                            <th class="main-thead_with--40">股東會日期</th>
+                            <th class="main-thead_with--100">投票起迄日期</th>
+                            <th class="main-thead_with--50">股務單位</th>
+                            <th class="main-thead_with--40">聯絡電話</th>
+                        </tr>
+                    </thead>
+                </table>
+                <div class="c-cardTable-div">
+                    <table class="c-cardTable">
+                        <tbody>
+                            <tr>
+                                <td class="main-table-td--center--50">6702 復興航空</td>
+                                <td class="main-table-td--center--40">106/01/11</td>
+                                <td class="main-table-td--center--100">105/12/27 ~ 106/01/08</td>
+                                <td class="main-table-td--center--50">群益金鼎證券</td>
+                                <td class="main-table-td--center--40">(02)2703-500</td>
+                            </tr>
+                            <tr>
+                                <td class="main-table-td--center--50">6702 復興航空</td>
+                                <td class="main-table-td--center--40">106/01/11</td>
+                                <td class="main-table-td--center--100">105/12/27 ~ 106/01/08</td>
+                                <td class="main-table-td--center--50">群益金鼎證券</td>
+                                <td class="main-table-td--center--40">(02)2703-500</td>
+                            </tr>
+                            <tr>
+                                <td class="main-table-td--center--50">6702 復興航空</td>
+                                <td class="main-table-td--center--40">106/01/11</td>
+                                <td class="main-table-td--center--100">105/12/27 ~ 106/01/08</td>
+                                <td class="main-table-td--center--50">群益金鼎證券</td>
+                                <td class="main-table-td--center--40">(02)2703-500</td>
+                            </tr>
+                            <tr>
+                                <td class="main-table-td--center--50">6702 復興航空</td>
+                                <td class="main-table-td--center--40">106/01/11</td>
+                                <td class="main-table-td--center--100">105/12/27 ~ 106/01/08</td>
+                                <td class="main-table-td--center--50">群益金鼎證券</td>
+                                <td class="main-table-td--center--40">(02)2703-500</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                </table>
+            </div>
+
+            <div class="main-connect-contain">
+                <table class="main-connect-table">
+                    <tr>
+                        <th>
+                            <img src="https://www.stockvote.com.tw/evote/images/zh_TW/index/btn_001.svg">
+                        </th>
+                        <th>
+                            <img src="https://www.stockvote.com.tw/evote/images/zh_TW/index/btn_001.svg">
+                        </th>
+                        <th>
+                            <img src="https://www.stockvote.com.tw/evote/images/zh_TW/index/btn_001.svg">
+                        </th>
+                    </tr>
+                    <tr>
+                        <th>
+                            <img src="https://www.stockvote.com.tw/evote/images/zh_TW/index/btn_001.svg">
+                        </th>
+                        <th>
+                            <img src="https://www.stockvote.com.tw/evote/images/zh_TW/index/btn_001.svg">
+                        </th>
+                        <th>
+                            <img src="https://www.stockvote.com.tw/evote/images/zh_TW/index/btn_001.svg">
+                        </th>
+                    </tr>
+                </table>
+
+                <div class="main-connect-web">
+                    <h2>相關網站</h2>
+                    <p>金融監督管理委員會</br>
+                        臺灣證券交易所</br>
+                        臺灣期貨交易所</br>
+                        證券櫃檯買賣中心</br>
+                        臺灣集保結算所</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="c-footer">
+            <div class="c-footer-left">
+                <div class="c-footer-left--marginright">
+                    <a>聯絡我們：</a>
+                    <a>週一至週五</a>
+                    <a>08:00〜20:00　電話：(02)3789-7555</a>
+                    <a>08:30〜17:30　電話：(02)2514-1125、(02)2514-1242</a>
+                </div>
+                <div class="c-footer-left--marginright">
+                    <a href="mailto:tdcc@tdcc.com.tw">E-Mail：tdcc@tdcc.com.tw</a>
+                    <address>台北市復興北路363號11樓</address>
+                </div>
+            </div>
+
+            <div class="c-footer-right">
+                <a href="http://www.tdcc.com.tw/portal/zh/about/ISO" target="_blank"><img
+                        src="https://www.stockvote.com.tw/evote/images/zh_TW/index/iso2700.gif"></a>
+                <a href="https://www.tpipas.org.tw/DPmark/ShowCertData.aspx?id=B000011(01)" target="_blank"><img
+                        src="https://www.stockvote.com.tw/evote/images/zh_TW/index/r_211.gif"></a>
+            </div>
+        </div>
+    </footer>
+</body>
+
+</html>

@@ -1,0 +1,682 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>股票e票通</title>
+    <link rel="stylesheet" type="text/css" href="./css/homepage.css">
+</head>
+
+<body class="t-index">
+
+    <!-- header function form -->
+    <div>
+        <form name="form2" method="post"><input type="hidden" name="userType" value=""></form>
+    </div>
+    <script src="./script/header.js" lang="JavaScript" type="text/javascript"></script>
+
+    <header>
+        <div class="c-header">
+            <div class="c-header_logo--index"><img src="asset/main_icon.png" style="width:50%;height:100%" alt=""></div>
+            <!-- 大版 menu -->
+            <ul class="c-header_menu">
+                <li class="c-menu_item"><a href="" onclick="englishWebSiteLink();"><b>English</b></a>
+                </li>
+                <li class="c-menu_item"><a href="/evote/index.html" target="_self">首頁</a></li>
+                <li class="c-menu_item"><a href="#" onclick="aboutUs();" target="_self">關於我們</a></li>
+                <li class="c-menu_item"><a href="#" onclick="bulletinData();" target="_self">活動消息</a></li>
+                <li class="c-menu_item"><a href="#" onclick="funcChange('/evote/common/statisticsData.html')"
+                        target="_self">統計專區</a></li>
+                <li class="c-menu_item"><a href="#" onclick="qaLink();" target="_self">Q&amp;A</a></li>
+                <!--<li class="c-menu_item"><a href="#sectionIframe" onclick="contactUs();">聯絡我們</a></li>-->
+                <li class="c-menu_item"><a href="/evote/login/shareholder.html">登入</a></li>
+            </ul>
+
+            <label for="hamburger_checkbox" class="c-header_hamburger c-hamburger_icon">
+                <img src="asset/btn_menu.png" alt="">
+            </label>
+
+            <input type="checkbox" class="c-hamburger_checkbox" id="hamburger_checkbox">
+
+            <ul class="c-hamburger_menu">
+                <li class="c-menu_item"><a href="#" onclick="englishWebSiteLink();" target="_self"><b>English</b></a>
+                </li>
+                <li class="c-menu_item"><a href="/evote/index.html" target="_self">首頁</a></li>
+                <li class="c-menu_item"><a href="#" onclick="aboutUs();" target="_self">關於我們</a></li>
+                <li class="c-menu_item"><a href="#" onclick="bulletinData();" target="_self">活動消息</a></li>
+                <li class="c-menu_item"><a href="#" onclick="funcChange('/evote/common/statisticsData.html')"
+                        target="_self">統計專區</a></li>
+                <li class="c-menu_item"><a href="#" onclick="qaLink();" target="_self">Q&amp;A</a></li>
+                <!--<li class="c-menu_item"><a href="#sectionIframe" onclick="contactUs();">聯絡我們</a></li>-->
+                <li class="c-menu_item"><a href="/evote/login/shareholder.html">登入</a></li>
+            </ul>
+        </div>
+    </header>
+
+    <body>
+        <div class="c-main--index">
+            <!-- 活動消息 -->
+            <div class="c-news">
+                <label class="c-news_label">活動消息</label>
+                <marquee name="news" id="news" behavior="scroll" direction="left" scrollamount="10" scrolldelay="180"
+                    hspace="0" vspace="0" onmouseover="this.stop();" onmouseout="this.start()" border="0">
+
+                </marquee>
+            </div>
+            <div class="c-brand_ad">
+                <!-- 選擇身份登入 (一般股東、公司、法人) -->
+                <ul class="login">
+                    <li class="c-ad_login_icon c-ad_login--shareholder"><a href="/evote/login/shareholder.html"><img
+                                src="asset/btn_shareholder.png" alt="一般股東"></a></li>
+                    <li class="c-ad_login_icon c-ad_login--company"><a href="/evote/login/company.html"><img
+                                src="asset/btn_company.png" alt="發行公司、股務代理機構"></a></li>
+                    <li class="c-ad_login_icon c-ad_login--bank"><a href="/evote/login/bank.html"><img
+                                src="asset/btn_bank.png" alt="專業機構法人"></a></li>
+                </ul>
+            </div>
+            <div class="c-index_ad">
+                <!-- 新手上路/首次使用設定 -->
+                <ul class="link">
+                    <li><a href="#" onclick="guide();">新手上路</a></li>
+                    <li><a href="#" onclick="evotehelp();">首次使用設定</a></li>
+                </ul>
+            </div>
+            <!-- iframe區 -->
+            <div class="c-iframe">
+
+                <div class="c-data">
+                    <h2 class="c-data_title">股東會資訊</h2>
+                    <section class="c-meeting">
+                        <ul>
+                            <li>
+                                <!-- è³ææåºæ¹å¼ -->
+                                <fieldset class="c-data_fieldset o-fieldset">
+                                    <legend class="c-fieldset_item">資料排序方式</legend>
+                                    <select name="orderType" id="orderType" class="o-select form-menu" onchange="">
+                                        <option value="0">請選擇</option><!-- è«é¸æ -->
+
+                                        <option value="1">依股東會日期由遠至近排序</option>
+
+                                        <option value="2">依股東會日期由近至遠排序</option>
+
+                                        <option value="3">依證券代號由小至大排序</option>
+
+                                        <option value="4">依投票起日由近至遠排序</option>
+
+                                        <option value="5">依投票起日由遠至近排序</option>
+
+                                    </select>
+                                    <!-- æ¥è©¢ -->
+                                    <button name="button1" id="button1" class="c-fieldset_button" value="查詢"
+                                        onclick="orderchange(); return false;">查詢</button>
+                                </fieldset>
+                            </li>
+                            <li>
+                                <fieldset class="c-data_fieldset o-fieldset">
+                                    <!-- æå°è¡æ±æ -->
+                                    <legend class="c-fieldset_item">搜尋股東會</legend>
+                                    <select class="o-select form-menu" name="searchType" id="searchType"
+                                        onchange="searchTypeChange();">
+                                        <option value="0">請選擇</option><!-- è«é¸æ -->
+
+                                        <option value="1">依證券代號搜尋</option>
+
+                                        <option value="2">依證券名稱搜尋</option>
+
+                                        <option value="3">依股東會日期搜尋</option>
+
+                                    </select>
+                                    <span id="s1" style="display: none;">
+                                        <input class="o-input u-width--30" name="stockId" type="text" id="stockId"
+                                            value="" size="4" maxlength="6">
+                                    </span>
+                                    <span id="s2" style="display: none;">
+                                        <input class="o-input u-width--30" name="stockName" type="text" id="stockName"
+                                            value="" size="4" maxlength="16">
+                                    </span>
+                                    <span id="s3" style="display: none;">
+                                        <input name="meetingDate" id="meetingDate" type="hidden">
+                                        <input class="o-input u-width--30" name="meetingDateTmp" id="meetingDateTmp"
+                                            type="text" value="" size="10" readonly=""
+                                            onclick="popup_calendar('document.form1.meetingDateTmp',document.form1.meetingDateTmp.value);showModal();return false;"
+                                            onmouseover="window.status='calendar';return true;"
+                                            onmouseout="window.status='';return true;">
+                                        <a href="#" id="s1"
+                                            onclick="popup_calendar('document.form1.meetingDateTmp',document.form1.meetingDateTmp.value);showModal();return false;"
+                                            onmouseover="window.status='calendar';return true;"
+                                            onmouseout="window.status='';return true;"><img
+                                                src="/evote/images/zh_TW/calendar.gif" alt="calendar" border="0"></a>
+                                    </span>
+                                    <button name="button2" id="button2" class="c-fieldset_button" value="查詢"
+                                        onclick="search();return false;">查詢</button><!-- æ¥è©¢ -->
+                                </fieldset>
+
+                            </li>
+                        </ul>
+                        <!-- data begin here -->
+
+
+
+                        <table id="meetinfo" class="c-cardTable">
+                            <thead>
+                                <tr>
+                                    <th class="u-mobile_width--50 u-t_align--left">證券代號/名稱</th>
+                                    <th class="u-mobile_width--40 u-t_align--left">股東會日期</th>
+                                    <th class="u-mobile_width--100 u-t_align--left">投票起日及迄日</th>
+                                    <th class="u-mobile_width--50 u-t_align--left">發行公司或股務代理機構</th>
+                                    <th class="u-mobile_width--40 u-t_align--left">聯絡電話</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr class="Font_001">
+                                    <td class="u-mobile_width--50 u-font_weight--bold u-t_align--left">
+                                        2637
+
+
+
+                                        <a class="td-link" href="http://www.wisdomlines.com.tw/wisdom/php/home.php"
+                                            target="_blank">
+                                            慧洋-KY
+                                        </a>
+
+
+                                    </td>
+                                    <td class="u-mobile_width--40 u-font_weight--bold u-t_align--left">
+                                        108/05/17
+                                    </td>
+                                    <td class="u-mobile_width--100 u-t_align--left">
+                                        108/04/17 ~ 108/05/14
+                                    </td>
+                                    <td class="u-mobile_width--50 u-t_align--left">
+
+
+
+                                        <a href="http://securities.sinopac.com/" target="_blank">
+                                            永豐金證券
+                                        </a>
+
+
+                                    </td>
+                                    <td class="u-mobile_width--40 u-t_align--left">
+                                        (02)23816288
+                                    </td>
+                                </tr>
+                                <tr class="Font_001">
+                                    <td class="u-mobile_width--50 u-font_weight--bold u-t_align--left">
+                                        2722
+
+
+
+                                        <a class="td-link" href="http://www.ktchateau.com.tw/" target="_blank">
+                                            夏都　　　　
+                                        </a>
+
+
+                                    </td>
+                                    <td class="u-mobile_width--40 u-font_weight--bold u-t_align--left">
+                                        108/05/17
+                                    </td>
+                                    <td class="u-mobile_width--100 u-t_align--left">
+                                        108/04/17 ~ 108/05/14
+                                    </td>
+                                    <td class="u-mobile_width--50 u-t_align--left">
+
+
+
+                                        <a href="http://www.uni-psg.com/" target="_blank">
+                                            統一證券
+                                        </a>
+
+
+                                    </td>
+                                    <td class="u-mobile_width--40 u-t_align--left">
+                                        (02)27478266
+                                    </td>
+                                </tr>
+                                <tr class="Font_001">
+                                    <td class="u-mobile_width--50 u-font_weight--bold u-t_align--left">
+                                        5310
+
+
+
+                                        <a class="td-link" href="www.cgs.com.tw" target="_blank">
+                                            天剛　　　　
+                                        </a>
+
+
+                                    </td>
+                                    <td class="u-mobile_width--40 u-font_weight--bold u-t_align--left">
+                                        108/05/17
+                                    </td>
+                                    <td class="u-mobile_width--100 u-t_align--left">
+                                        108/04/17 ~ 108/05/14
+                                    </td>
+                                    <td class="u-mobile_width--50 u-t_align--left">
+
+
+
+                                        <a href="http://agency.entrust.com.tw/cgi-bin/index.php" target="_blank">
+                                            華南永昌證券
+                                        </a>
+
+
+                                    </td>
+                                    <td class="u-mobile_width--40 u-t_align--left">
+                                        (02)27186425
+                                    </td>
+                                </tr>
+                                <tr class="Font_001">
+                                    <td class="u-mobile_width--50 u-font_weight--bold u-t_align--left">
+                                        6583
+
+
+
+                                        <a class="td-link" href="http://www.jtv.com.tw/" target="_blank">
+                                            友松
+                                        </a>
+
+
+                                    </td>
+                                    <td class="u-mobile_width--40 u-font_weight--bold u-t_align--left">
+                                        108/05/17
+                                    </td>
+                                    <td class="u-mobile_width--100 u-t_align--left">
+                                        108/04/17 ~ 108/05/14
+                                    </td>
+                                    <td class="u-mobile_width--50 u-t_align--left">
+
+
+
+                                        <a href="http://www.capital.com.tw/agency/" target="_blank">
+                                            群益金鼎證券
+                                        </a>
+
+
+                                    </td>
+                                    <td class="u-mobile_width--40 u-t_align--left">
+                                        (02)27035000
+                                    </td>
+                                </tr>
+                                <tr class="Font_001">
+                                    <td class="u-mobile_width--50 u-font_weight--bold u-t_align--left">
+                                        8424
+
+
+
+                                        <a class="td-link" href="http://www.wellpool.com.tw/" target="_blank">
+                                            惠普　　　　
+                                        </a>
+
+
+                                    </td>
+                                    <td class="u-mobile_width--40 u-font_weight--bold u-t_align--left">
+                                        108/05/17
+                                    </td>
+                                    <td class="u-mobile_width--100 u-t_align--left">
+                                        108/04/17 ~ 108/05/14
+                                    </td>
+                                    <td class="u-mobile_width--50 u-t_align--left">
+
+
+
+                                        <a href="http://www.capital.com.tw/agency/" target="_blank">
+                                            群益金鼎證券
+                                        </a>
+
+
+                                    </td>
+                                    <td class="u-mobile_width--40 u-t_align--left">
+                                        (02)27035000
+                                    </td>
+                                </tr>
+                                <tr class="Font_001">
+                                    <td class="u-mobile_width--50 u-font_weight--bold u-t_align--left">
+                                        2101
+
+
+
+                                        <a class="td-link" href="http://www.nankang-tyre.com/index.php" target="_blank">
+                                            南港　　　　
+                                        </a>
+
+
+                                    </td>
+                                    <td class="u-mobile_width--40 u-font_weight--bold u-t_align--left">
+                                        108/05/16
+                                    </td>
+                                    <td class="u-mobile_width--100 u-t_align--left">
+                                        108/04/16 ~ 108/05/13
+                                    </td>
+                                    <td class="u-mobile_width--50 u-t_align--left">
+
+
+
+                                        <a href="http://www.yuanta.com.tw/Brk/pages/homepage/Agent.aspx?Node=0a46fd2e-7e39-4385-b827-41f410107d09"
+                                            target="_blank">
+                                            元大證券
+                                        </a>
+
+
+                                    </td>
+                                    <td class="u-mobile_width--40 u-t_align--left">
+                                        (02)25863117
+                                    </td>
+                                </tr>
+                                <tr class="Font_001">
+                                    <td class="u-mobile_width--50 u-font_weight--bold u-t_align--left">
+                                        3443
+
+
+
+                                        <a class="td-link" href="http://www.guc-asic.com/" target="_blank">
+                                            創意　　　　
+                                        </a>
+
+
+                                    </td>
+                                    <td class="u-mobile_width--40 u-font_weight--bold u-t_align--left">
+                                        108/05/16
+                                    </td>
+                                    <td class="u-mobile_width--100 u-t_align--left">
+                                        108/04/16 ~ 108/05/13
+                                    </td>
+                                    <td class="u-mobile_width--50 u-t_align--left">
+
+
+
+                                        <a href="https://ecorp.ctbcbank.com/cts/index.jsp" target="_blank">
+                                            中國信託商業銀行代理部
+                                        </a>
+
+
+                                    </td>
+                                    <td class="u-mobile_width--40 u-t_align--left">
+                                        (02)66365566
+                                    </td>
+                                </tr>
+                                <tr class="Font_001">
+                                    <td class="u-mobile_width--50 u-font_weight--bold u-t_align--left">
+                                        3673
+
+
+
+                                        <a class="td-link" href="http://en.tpk.com/" target="_blank">
+                                            TPK-KY
+                                        </a>
+
+
+                                    </td>
+                                    <td class="u-mobile_width--40 u-font_weight--bold u-t_align--left">
+                                        108/05/16
+                                    </td>
+                                    <td class="u-mobile_width--100 u-t_align--left">
+                                        108/04/16 ~ 108/05/13
+                                    </td>
+                                    <td class="u-mobile_width--50 u-t_align--left">
+
+
+
+                                        <a href="http://www.yuanta.com.tw/Brk/pages/homepage/Agent.aspx?Node=0a46fd2e-7e39-4385-b827-41f410107d09"
+                                            target="_blank">
+                                            元大證券
+                                        </a>
+
+
+                                    </td>
+                                    <td class="u-mobile_width--40 u-t_align--left">
+                                        (02)25863117
+                                    </td>
+                                </tr>
+                                <tr class="Font_001">
+                                    <td class="u-mobile_width--50 u-font_weight--bold u-t_align--left">
+                                        6130
+
+
+
+                                        <a class="td-link" href="http://www.genomeib.com/" target="_blank">
+                                            星寶國際
+                                        </a>
+
+
+                                    </td>
+                                    <td class="u-mobile_width--40 u-font_weight--bold u-t_align--left">
+                                        108/05/16
+                                    </td>
+                                    <td class="u-mobile_width--100 u-t_align--left">
+                                        108/04/16 ~ 108/05/13
+                                    </td>
+                                    <td class="u-mobile_width--50 u-t_align--left">
+
+
+
+                                        <a href="http://securities.sinopac.com/" target="_blank">
+                                            永豐金證券
+                                        </a>
+
+
+                                    </td>
+                                    <td class="u-mobile_width--40 u-t_align--left">
+                                        (02)23816288
+                                    </td>
+                                </tr>
+                                <tr class="Font_001">
+                                    <td class="u-mobile_width--50 u-font_weight--bold u-t_align--left">
+                                        8261
+
+
+
+                                        <a class="td-link"
+                                            href="http://www.a-power.com.tw/index.aspx?lang=eng&amp;fn=index"
+                                            target="_blank">
+                                            富鼎　　　　
+                                        </a>
+
+
+                                    </td>
+                                    <td class="u-mobile_width--40 u-font_weight--bold u-t_align--left">
+                                        108/05/16
+                                    </td>
+                                    <td class="u-mobile_width--100 u-t_align--left">
+                                        108/04/16 ~ 108/05/13
+                                    </td>
+                                    <td class="u-mobile_width--50 u-t_align--left">
+
+
+
+                                        <a href="http://www.yuanta.com.tw/Brk/pages/homepage/Agent.aspx?Node=0a46fd2e-7e39-4385-b827-41f410107d09"
+                                            target="_blank">
+                                            元大證券
+                                        </a>
+
+
+                                    </td>
+                                    <td class="u-mobile_width--40 u-t_align--left">
+                                        (02)25863117
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+
+                        <!-- data end here -->
+                    </section>
+                </div>
+
+
+
+
+            </div>
+
+        </div>
+
+        <!-- 其他連結 -->
+        <div class="c-index_otherLink">
+            <ul>
+                <li><a href="reggw/index.html" target="_blank"><img src="asset/btn_008.png" width="177" height="50"
+                            alt=""></a></li>
+                <li><a href="http://www.tdcc.com.tw/stockvote/index.htm" target="_blank"><img src="asset/btn_005.png"
+                            width="177" height="50" alt=""></a></li>
+                <li><a href="#" onclick="funcChange('/evote/common/statisticsData.html')" target="_self"><img
+                            src="asset/btn_007.png" width="177" height="50" alt=""></a></li>
+                <li><a href="http://mops.twse.com.tw/" target="_blank"><img src="asset/btn_001.png" width="177"
+                            height="50" alt=""></a></li>
+                <li><a href="http://www.selaw.com.tw/LawSearch.aspx" target="_blank"><img src="asset/btn_002.png"
+                            width="177" height="50" alt=""></a></li>
+                <li><a href="#" onclick="aboutUs();" target="_self"><img src="asset/btn_009.png" width="177" height="50"
+                            alt=""></a></li>
+            </ul>
+        </div>
+    </body>
+
+
+
+    <footer>
+        <div class="c-footer">
+            <div class="c-footer_block c-footer__contactUs">
+                <h3 class="c-footer_block__title">聯絡我們</h3>
+                <ul class="c-footer_list">
+                    <li>服務時間：週一至週五 </li>
+                    <li>08:30〜17:30　電話：(02)2514-1188</li>
+                    <li><a href="mailto:tdcc@tdcc.com.tw">E-Mail：tdcc@tdcc.com.tw</a></li>
+                    <li>地址：台北市復興北路363號11樓</li>
+                </ul>
+            </div>
+            <div class="c-footer_block c-footer__infoRight">
+                <a href="http://www.tdcc.com.tw/portal/zh/about/ISO" target="_blank"><img
+                        src="https://www.stockvote.com.tw/evote/images/zh_TW/index/iso2700.gif"></a>
+                <a href="https://www.tpipas.org.tw/DPmark/ShowCertData.aspx?id=B000011(01)" target="_blank"><img
+                        src="https://www.stockvote.com.tw/evote/images/zh_TW/index/r_211.gif"></a>
+                <div class="c-footer_copyright u-inline">
+                    <div>所有圖文版權皆為 【臺灣集中保管結算所股份有限公司】所有</div>
+                    <a href="http://smart.tdcc.com.tw/pdf/others/a212.pdf">隱私權保護及資訊安全政策</a>
+                    <div>螢幕解析度：建議 1024x768，IE9 以上</div>
+                </div>
+            </div>
+        </div>
+        <div class="c-footer_logo">
+            <img src="https://www.stockvote.com.tw/evote/images/zh_TW/index/img_logo.png" alt="台灣集中保管結算所">
+        </div>
+        <!-- alert 替代版-->
+        <div class="u-t_align--center" id="msgDialog" style="display:none">
+            <p id="msgDialog_msg"></p>
+            <button class="o-button" id="msgDialog_okBtn" onclick="$.modal.close();return false;">確認</button>
+        </div>
+
+        <!-- comfirm 替代版-->
+        <div class="u-t_align--center" id="comfirmDialog" style="display:none">
+            <p id="comfirmDialog_msg"></p>
+            <button class="o-button" id="comfirmDialog_okBtn" onclick="$.modal.close();return false;">確認</button>
+            <button class="o-button" id="comfirmDialog_cancelBtn" onclick="$.modal.close();return false;">取消</button>
+        </div>
+    </footer>
+
+    <script>
+        function evotehelp() {
+            funcChange("login/index/evotehelp.html");
+        }
+
+        function guide() {
+            funcChange("login/index/guideS.html");
+        }
+
+        function commonLink() {
+            funcChange("/evote/login/index/common_link.html");
+        }
+    </script>
+
+    <script>
+        // 漢堡選單
+        $(".c-hamburger_menu .c-menu_item").click(function (event) {
+            $(this).find('a').click();
+        });
+
+        // 漢堡選單 a:link
+        $(".c-hamburger_menu .c-menu_item a").click(function (event) {
+            event.stopPropagation();
+            location.href = this.href;
+        });
+
+        // 登入頁籤
+        $(".c-login__status li").click(function (event) {
+            $(this).find('a').click();
+        });
+
+
+        $(".c-login__status li a").click(function (event) {
+            event.stopPropagation();
+            location.href = this.href;
+        });
+
+        // 顯示modal & 按下OK btn的callback
+        // msg: modal內容
+        // cb: function 
+        // param: array, cb的參數
+        function showMsgDialog(msg, cb, param) {
+            // okbtn click事件
+            $("#msgDialog_okBtn").off();
+            $("#msgDialog_okBtn").click(function (event) {
+                if (cb) {
+                    cb.apply(this, param);
+                } else {
+                    $.modal.close();
+                }
+            });
+
+            $("#msgDialog_msg").text(msg);
+            $("#msgDialog").modal({
+                escapeClose: false,      // Allows the user to close the modal by pressing `ESC`
+                clickClose: false,
+                showClose: false
+            });
+        }
+
+        // 顯示modal & 按下OK/取消 btn的callback
+        // msg: modal內容
+        // okCb: function 
+        // okParam: array, okCb的參數
+        // cancelCb: function
+        // cancelParam: array, cancelCb的參數
+        function showConfirmDialog(msg, okCb, okParam, cancelCb, cancelParam) {
+            var modalBox = $.modal ? "#comfirmDialog" : "#chkModal";
+            var okBtn = $.modal ? "#comfirmDialog_okBtn" : "#chkModal #confirm";
+            var cancelBtn = $.modal ? "#comfirmDialog_cancelBtn" : "#chkModal #cancel";
+            var msgBox = $.modal ? "#comfirmDialog_msg" : "#chkModal .modal-body p";
+            okParam = okParam || [];
+            cancelParam = cancelParam || [];
+            // click事件
+            $(okBtn).off();
+            $(cancelBtn).off();
+
+            $(okBtn).click(function (event) {
+                if (okCb) {
+                    okCb.apply(this, okParam);
+                } else {
+                    if ($.modal) {
+                        $.modal.close();
+                    } else {
+                        $(modalBox).modal('hide');
+                    }
+                }
+            });
+            $(cancelBtn).click(function (event) {
+                if (cancelCb) {
+                    cancelCb.apply(this, cancelParam);
+                } else {
+                    if ($.modal) {
+                        $.modal.close();
+                    } else {
+                        $(modalBox).modal('hide');
+                    }
+                }
+            });
+
+            $(msgBox).text(msg);
+            $(modalBox).modal({
+                escapeClose: false,      // Allows the user to close the modal by pressing `ESC`
+                clickClose: false,
+                showClose: false
+            });
+        }
+    </script>
+
+</body>
+
+</html>

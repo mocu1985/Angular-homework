@@ -1,0 +1,44 @@
+.c-main {
+    display: flex;
+    -webkit-align-items: center;
+    align-items: center;
+    -webkit-justify-content: center;
+    justify-content: center;
+}
+
+.c-rule-main {
+    width: 70%;
+    border: 1px solid black;
+    padding-bottom: 20px;
+    margin: 3%;
+    border-radius: 10px;
+}
+
+.c-article {
+    display: flex;
+    flex-direction: column;
+    padding-top: 20px;
+    padding-left: 50px;
+    padding-right: 50px;
+    list-style-type: none;
+}
+
+.c-ruleversion-right{
+    width: 100%;
+    text-align: right;
+}
+
+.c-rule-button {
+    font-size: 20px;
+    display: flex;
+    flex-direction: row;
+    margin: 0 auto;
+    margin-top: 20px;
+    padding: 5px;
+    text-align: left;
+}
+
+.c-rule-button--flex {
+    display: flex;
+    flex-direction: row;
+}

@@ -1,0 +1,28 @@
+.c-footer {
+    display: flex;
+    flex-direction: row;
+}
+
+.c-footer-left {
+    width: 50%;
+    display: flex;
+    border-right: 1px solid black;
+    flex-direction: row;
+}
+
+.c-footer-right {
+    display: flex;
+    flex-grow: 1;
+    -webkit-align-items: center;
+    align-items: center;
+    flex-direction: row;
+    margin-left: 2%;
+}
+
+.c-footer-left--marginright {
+    display: flex;
+    flex-direction: column;
+    margin-right: 2%;
+    margin-left: 2%;
+    white-space: nowrap;
+}
